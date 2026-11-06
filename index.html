@@ -451,8 +451,8 @@ if(location.search.includes('test')){
   const ok=[TRACKS.length===6,$('#crate').children.length===6,$('#dl').children.length===DATES.length,$('#st').children.length===6,$('#ig').children.length===IG.length];
   pick(2);ok.push(getComputedStyle(document.documentElement).getPropertyValue('--acc').trim()==='#39ff14');
   setPlay(true);ok.push($('#vinyl').classList.contains('play'));setPlay(false);pick(0);
-  ok.push(document.documentElement.scrollWidth<=document.documentElement.clientWidth+1);
-  console.log(ok.every(Boolean)?'selftest ok':'selftest FAIL '+ok.map(Number).join(''));
+  setTimeout(()=>{ok.push(document.documentElement.scrollWidth<=document.documentElement.clientWidth+1);
+  console.log(ok.every(Boolean)?'selftest ok':'selftest FAIL '+ok.map(Number).join(''))},3500); // après l'intro animée
 }
 </script>
 </body>
