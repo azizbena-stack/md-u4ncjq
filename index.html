@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Black Accord · Producers & DJs</title>
+<meta name="description" content="Black Accord, duo nîmois de producteurs et DJs indie dance · Brand'ade Crew records.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Major+Mono+Display&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--ink:#f4f1ea;--mute:#8d8a84;--line:#262626;--acc:#f0a030;--acc2:#ff6a00}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 'Space Grotesk',system-ui,sans-serif;overflow-x:hidden;transition:--acc .6s}
+a{color:inherit}
+img{display:block;max-width:100%}
+.demo{position:fixed;top:0;left:0;right:0;z-index:60;background:#ffd400;color:#000;font:700 12px/1 'Space Grotesk';text-align:center;padding:6px 10px;letter-spacing:.04em}
+nav{position:fixed;top:24px;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:12px clamp(16px,4vw,48px);transition:background .3s}
+nav.on{background:rgba(0,0,0,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .mini{width:44px;height:44px}
+nav ul{display:flex;gap:26px;list-style:none;font:500 13px 'Space Grotesk';text-transform:uppercase;letter-spacing:.12em}
+nav ul a{text-decoration:none;opacity:.75}nav ul a:hover{opacity:1;color:var(--acc)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--acc);color:#000;font:700 13px 'Space Grotesk';text-transform:uppercase;letter-spacing:.1em;padding:12px 20px;border:0;border-radius:40px;text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .3s,background .6s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 30px var(--acc)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn.ghost:hover{border-color:var(--acc);color:var(--acc);box-shadow:none}
+
+/* HERO */
+.hero{position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;padding:110px 16px 60px;overflow:hidden}
+.hero .glow{position:absolute;inset:-20%;background:radial-gradient(circle at 50% 45%,color-mix(in srgb,var(--acc) 40%,transparent),transparent 45%);filter:blur(30px);transition:background 1s;animation:breathe 4s ease-in-out infinite}
+@keyframes breathe{50%{opacity:.55;transform:scale(1.08)}}
+.stars{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 10% 20%,#fff8,transparent),radial-gradient(1px 1px at 80% 30%,#fff6,transparent),radial-gradient(1.5px 1.5px at 30% 80%,#fff7,transparent),radial-gradient(1px 1px at 65% 70%,#fff5,transparent),radial-gradient(1px 1px at 45% 12%,#fff6,transparent),radial-gradient(1.5px 1.5px at 92% 85%,#fff6,transparent);animation:tw 6s linear infinite}
+@keyframes tw{50%{opacity:.4}}
+.hero-in{position:relative;z-index:2}
+.logo-big{width:min(340px,70vw);height:auto;margin:0 auto 26px;filter:drop-shadow(0 0 40px color-mix(in srgb,var(--acc) 55%,transparent))}
+.logo-big .ln{stroke-dasharray:200;stroke-dashoffset:200;animation:draw 1.4s cubic-bezier(.7,0,.3,1) forwards}
+.logo-big text{opacity:0;animation:pop .5s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.logo-big circle{transform-origin:50% 50%;animation:spin 30s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.tag{font:500 13px 'Space Grotesk';letter-spacing:.35em;text-transform:uppercase;color:var(--mute);opacity:0;animation:pop .8s 2.2s forwards}
+h1{font:400 clamp(56px,13vw,180px)/.86 'Anton';text-transform:uppercase;letter-spacing:-.01em;margin:10px 0 18px}
+h1 span{display:inline-block;opacity:0;transform:translateY(40px) skewY(6deg);animation:wave .9s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes wave{to{opacity:1;transform:none}}
+.hero p.sub{max-width:520px;margin:0 auto 28px;color:#cfcbc3;opacity:0;animation:pop .8s 2.5s forwards}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;opacity:0;animation:pop .8s 2.7s forwards}
+.scroll{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:.3em;color:var(--mute);z-index:2}
+.eq{display:flex;gap:4px;justify-content:center;height:28px;align-items:flex-end;margin:0 auto 18px;opacity:0;animation:pop .6s 2s forwards}
+.eq i{width:5px;background:var(--acc);border-radius:2px;animation:bar 1s ease-in-out infinite;transition:background .6s}
+@keyframes bar{0%,100%{height:20%}50%{height:100%}}
+
+/* MARQUEE */
+.mq{border-block:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:14px 0;background:#070707}
+.mq div{display:inline-block;animation:mq 30s linear infinite;font:400 26px 'Anton';text-transform:uppercase;letter-spacing:.04em}
+.mq b{color:var(--acc);font-weight:400;margin:0 22px;transition:color .6s}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{padding:clamp(70px,10vw,130px) clamp(16px,5vw,64px);max-width:1280px;margin:0 auto}
+.kick{font:500 12px 'Space Grotesk';letter-spacing:.3em;text-transform:uppercase;color:var(--acc);transition:color .6s}
+h2{font:400 clamp(44px,8vw,96px)/.9 'Anton';text-transform:uppercase;margin:10px 0 18px}
+.lead{max-width:620px;color:#cfcbc3}
+.rv{opacity:0;transform:translateY(40px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+/* PLATINE */
+#musique{overflow:hidden}
+.deck{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(24px,5vw,70px);align-items:center;margin-top:40px}
+.tt{position:relative;aspect-ratio:1;max-width:520px;width:100%;margin:auto;border-radius:22px;background:linear-gradient(145deg,#1a1a1a,#0a0a0a);border:1px solid var(--line);box-shadow:0 40px 80px #000,inset 0 1px 0 #333}
+.vinyl{position:absolute;inset:8%;border-radius:50%;background:repeating-radial-gradient(circle,#111 0 2px,#1b1b1b 2px 4px);box-shadow:0 0 0 2px #000,0 0 60px color-mix(in srgb,var(--acc) 35%,transparent);transition:box-shadow .6s}
+.vinyl.play{animation:spin 1.8s linear infinite}
+.vinyl .lbl{position:absolute;inset:33%;border-radius:50%;background-size:cover;background-position:center 35%;border:3px solid #000}
+.vinyl .lbl::after{content:"";position:absolute;inset:44%;border-radius:50%;background:#000}
+.vinyl::before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 30deg,transparent 0 10%,#fff1 14%,transparent 18% 60%,#fff1 64%,transparent 68%)}
+.arm{position:absolute;top:8%;right:6%;width:14%;height:62%;transform-origin:50% 8%;transform:rotate(-24deg);transition:transform .9s cubic-bezier(.5,0,.2,1)}
+.arm.on{transform:rotate(4deg)}
+.arm::before{content:"";position:absolute;left:50%;top:0;width:34px;height:34px;margin-left:-17px;border-radius:50%;background:radial-gradient(#555,#222);box-shadow:0 4px 10px #000}
+.arm::after{content:"";position:absolute;left:50%;top:14px;width:6px;height:92%;margin-left:-3px;background:linear-gradient(#ccc,#777);border-radius:3px;box-shadow:-6px 14px 0 -2px transparent}
+.arm i{position:absolute;bottom:-6%;left:50%;width:20px;height:34px;margin-left:-14px;background:#222;border-radius:4px;transform:rotate(18deg);border:1px solid #555}
+.now .kick{margin-bottom:6px}
+.now h3{font:400 clamp(44px,7vw,84px)/.9 'Anton';text-transform:uppercase;color:var(--acc);text-shadow:0 0 40px color-mix(in srgb,var(--acc) 50%,transparent);transition:color .6s}
+.now .meta{color:var(--mute);margin:10px 0 18px;font-size:14px}
+.now .story{margin-bottom:22px;color:#d8d4cc;max-width:440px}
+.plats{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.plats a{font:700 12px 'Space Grotesk';text-transform:uppercase;letter-spacing:.08em;text-decoration:none;border:1px solid #3a3a3a;border-radius:30px;padding:9px 14px;transition:.2s}
+.plats a:hover{border-color:var(--acc);color:var(--acc)}
+.crate{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:46px}
+.crate button{position:relative;border:0;background:#111;border-radius:10px;overflow:hidden;aspect-ratio:3/4;cursor:pointer;outline:2px solid transparent;outline-offset:3px;transition:transform .3s,outline-color .3s}
+.crate button img{width:100%;height:100%;object-fit:cover;object-position:center 25%}
+.crate button span{position:absolute;left:0;right:0;bottom:0;padding:22px 8px 8px;background:linear-gradient(transparent,#000);font:400 15px 'Anton';text-transform:uppercase;color:#fff;text-align:left}
+.crate button:hover{transform:translateY(-6px)}
+.crate button.sel{outline-color:var(--acc)}
+
+/* DATES */
+.dates{margin-top:40px;border-top:1px solid var(--line)}
+.date{display:grid;grid-template-columns:120px 1fr auto;gap:24px;align-items:center;padding:22px 0;border-bottom:1px solid var(--line);transition:background .3s,padding .3s}
+.date:hover{background:#0c0c0c;padding-inline:14px}
+.date .d{font:400 40px/1 'Anton'}.date .d small{display:block;font:500 12px 'Space Grotesk';letter-spacing:.2em;color:var(--mute);margin-top:4px}
+.date h4{font:400 24px 'Anton';text-transform:uppercase;letter-spacing:.02em}
+.date p{color:var(--mute);font-size:14px}
+.pill{font:700 11px 'Space Grotesk';letter-spacing:.12em;text-transform:uppercase;padding:7px 12px;border-radius:30px;border:1px solid #333;color:var(--mute);white-space:nowrap}
+.pill.hot{border-color:var(--acc);color:var(--acc)}
+.soon{margin-top:28px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;padding:24px;border:1px dashed #3a3a3a;border-radius:16px}
+.soon b{font:400 26px 'Anton';text-transform:uppercase}
+
+/* FLYERS */
+.flyers{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+.flyers figure{position:relative;border-radius:12px;overflow:hidden;cursor:zoom-in;background:#111}
+.flyers img{width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform .6s}
+.flyers figure:hover img{transform:scale(1.06)}
+.flyers figcaption{position:absolute;inset:auto 0 0;padding:30px 12px 12px;background:linear-gradient(transparent,#000d);font-size:13px}
+
+/* DUO */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,70px);align-items:center}
+.duo .ph{position:relative;border-radius:18px;overflow:hidden}
+.duo .ph img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.duo .ph::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px #fff2;border-radius:18px;background:linear-gradient(transparent 60%,#000a)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:30px}
+.stats div{background:#060606;padding:20px 16px}
+.stats b{display:block;font:400 clamp(28px,4vw,42px)/1 'Anton';color:var(--ink)}
+.stats span{font-size:12px;color:var(--mute);text-transform:uppercase;letter-spacing:.1em}
+.src{font-size:11px;color:var(--mute);margin-top:10px}
+.cities{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.cities span{font-size:13px;border:1px solid #2e2e2e;border-radius:30px;padding:6px 12px}
+.cities span em{font-style:normal;color:var(--acc)}
+
+/* ILS ONT JOUE / LIEUX */
+.played{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(24px,5vw,70px);align-items:center;background:#070707;border:1px solid var(--line);border-radius:24px;padding:clamp(20px,4vw,48px);overflow:hidden}
+.played img{border-radius:14px;width:100%;aspect-ratio:4/5;object-fit:cover}
+.played blockquote{font:400 clamp(28px,4vw,48px)/1 'Anton';text-transform:uppercase}
+.played blockquote em{font-style:normal;color:var(--acc)}
+.venues{overflow:hidden;white-space:nowrap;margin-top:50px;mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.venues div{display:inline-block;animation:mq 40s linear infinite reverse}
+.venues span{display:inline-block;font:400 clamp(30px,5vw,56px) 'Anton';text-transform:uppercase;margin-right:40px;color:transparent;-webkit-text-stroke:1px #6a6a6a;transition:.3s}
+.venues span:hover{color:var(--acc);-webkit-text-stroke-color:var(--acc)}
+
+/* CREW */
+.crew{position:relative;border-radius:24px;overflow:hidden;min-height:440px;display:grid;align-items:end}
+.crew>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(.45)}
+.crew .in{position:relative;padding:clamp(20px,5vw,56px);max-width:640px}
+
+/* INSTA */
+.ig{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:36px}
+.ig a{position:relative;overflow:hidden;aspect-ratio:1;background:#111}
+.ig img{width:100%;height:100%;object-fit:cover;object-position:center 30%;transition:transform .5s,filter .5s}
+.ig a:hover img{transform:scale(1.08);filter:brightness(.5)}
+.ig a span{position:absolute;inset:0;display:grid;place-items:center;opacity:0;font-size:13px;padding:10px;text-align:center;transition:.3s}
+.ig a:hover span{opacity:1}
+.prof{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.prof svg{width:70px;height:70px}
+
+/* BOOKING */
+.book{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(24px,5vw,70px)}
+form{display:grid;gap:12px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);display:grid;gap:6px}
+input,select,textarea{font:16px 'Space Grotesk';color:var(--ink);background:#0b0b0b;border:1px solid #2c2c2c;border-radius:12px;padding:13px 14px;outline:none;transition:border-color .2s}
+input:focus,select:focus,textarea:focus{border-color:var(--acc)}
+textarea{min-height:110px;resize:vertical}
+.ok{display:none;padding:18px;border:1px solid var(--acc);border-radius:12px;color:var(--acc)}
+.contact a{display:block;font:400 clamp(24px,3vw,34px) 'Anton';text-transform:uppercase;text-decoration:none;margin:8px 0;transition:color .2s}
+.contact a:hover{color:var(--acc)}
+
+footer{border-top:1px solid var(--line);padding:40px clamp(16px,5vw,64px) 110px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--mute);font-size:13px}
+.mbar{display:none}
+.lb{position:fixed;inset:0;z-index:80;background:#000e;display:none;place-items:center;padding:20px;cursor:zoom-out}
+.lb.on{display:grid}.lb img{max-height:90vh;border-radius:12px}
+
+@media (max-width:860px){
+  nav ul{display:none}
+  .deck,.duo,.played,.book{grid-template-columns:1fr}
+  .crate{grid-template-columns:repeat(3,1fr)}
+  .flyers{grid-template-columns:repeat(2,1fr)}
+  .ig{grid-template-columns:repeat(3,1fr)}
+  .date{grid-template-columns:80px 1fr;gap:14px}.date .pill{grid-column:2;justify-self:start}
+  .date .d{font-size:30px}
+  .row{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .mbar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:55;gap:8px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:#000e;backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+  .mbar a{flex:1;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv,h1 span,.tag,.cta,.eq,.hero p.sub,.logo-big text{opacity:1;transform:none}.logo-big .ln{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<div class="demo">Démo · maquette non officielle</div>
+
+<nav id="nav">
+  <a href="#top" aria-label="Accueil"><svg class="mini" viewBox="0 0 120 120"><use href="#logo"/></svg></a>
+  <ul>
+    <li><a href="#musique">Musique</a></li>
+    <li><a href="#dates">Dates</a></li>
+    <li><a href="#duo">Le duo</a></li>
+    <li><a href="#crew">Brand'ade Crew</a></li>
+    <li><a href="#booking">Booking</a></li>
+  </ul>
+  <a class="btn" href="#booking">Booker</a>
+</nav>
+
+<!-- Logo redessiné d'après la photo de profil : lettres reliées par des traits, façon labyrinthe -->
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="logo" viewBox="0 0 120 120">
+    <circle cx="60" cy="60" r="58" fill="#000" stroke="#fff" stroke-width="2"/>
+    <g fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="square">
+      <path class="ln" d="M24 30H96M24 30V50"/>
+      <path class="ln" d="M44 50H84" style="animation-delay:.15s"/>
+      <path class="ln" d="M24 68H96M96 50V68" style="animation-delay:.3s"/>
+      <path class="ln" d="M30 86H90M30 86V102H90" style="animation-delay:.45s"/>
+    </g>
+    <g fill="#fff" font-family="'Major Mono Display',monospace" font-size="15" text-anchor="middle">
+      <text x="32" y="45" style="animation-delay:.9s">b</text><text x="60" y="45" style="animation-delay:1s">l</text><text x="88" y="45" style="animation-delay:1.1s">a</text>
+      <text x="54" y="63" style="animation-delay:1.2s">c</text><text x="74" y="63" style="animation-delay:1.3s">k</text>
+      <text x="32" y="81" style="animation-delay:1.4s">a</text><text x="60" y="81" style="animation-delay:1.5s">c</text><text x="88" y="81" style="animation-delay:1.6s">c</text>
+    </g>
+    <g fill="#fff" font-family="'Major Mono Display',monospace" font-size="13" text-anchor="middle">
+      <text x="44" y="99" style="animation-delay:1.7s">o</text><text x="60" y="99" style="animation-delay:1.8s">r</text><text x="76" y="99" style="animation-delay:1.9s">d</text>
+    </g>
+  </symbol>
+</svg>
+
+<section class="hero" id="top" style="max-width:none">
+  <div class="glow"></div><div class="stars"></div>
+  <div class="hero-in">
+    <svg class="logo-big" viewBox="0 0 120 120" role="img" aria-label="Logo Black Accord">
+      <circle cx="60" cy="60" r="58" fill="#000" stroke="#fff" stroke-width="2"/>
+      <g fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="square">
+        <path class="ln" d="M24 30H96M24 30V50"/>
+        <path class="ln" d="M44 50H84" style="animation-delay:.15s"/>
+        <path class="ln" d="M24 68H96M96 50V68" style="animation-delay:.3s"/>
+        <path class="ln" d="M30 86H90M30 86V102H90" style="animation-delay:.45s"/>
+      </g>
+      <g fill="#fff" font-family="'Major Mono Display',monospace" font-size="15" text-anchor="middle">
+        <text x="32" y="45" style="animation-delay:.9s">b</text><text x="60" y="45" style="animation-delay:1s">l</text><text x="88" y="45" style="animation-delay:1.1s">a</text>
+        <text x="54" y="63" style="animation-delay:1.2s">c</text><text x="74" y="63" style="animation-delay:1.3s">k</text>
+        <text x="32" y="81" style="animation-delay:1.4s">a</text><text x="60" y="81" style="animation-delay:1.5s">c</text><text x="88" y="81" style="animation-delay:1.6s">c</text>
+      </g>
+      <g fill="#fff" font-family="'Major Mono Display',monospace" font-size="13" text-anchor="middle">
+        <text x="44" y="99" style="animation-delay:1.7s">o</text><text x="60" y="99" style="animation-delay:1.8s">r</text><text x="76" y="99" style="animation-delay:1.9s">d</text>
+      </g>
+    </svg>
+    <div class="eq" aria-hidden="true"></div>
+    <div class="tag">French · Producers &amp; DJs · Nîmes</div>
+    <h1 id="h1">Black Accord</h1>
+    <p class="sub">Duo nîmois d'indie dance. Des tracks jouées jusqu'à Londres, des lives qui retournent les clubs du Sud. Sorties chez Brand'ade Crew records.</p>
+    <div class="cta">
+      <a class="btn" href="#musique">▶ Écouter</a>
+      <a class="btn ghost" href="#booking">Booking</a>
+    </div>
+  </div>
+  <div class="scroll">SCROLL ↓</div>
+</section>
+
+<div class="mq"><div id="mq"></div></div>
+
+<section id="musique">
+  <div class="kick rv">Sorties</div>
+  <h2 class="rv">Sur la platine</h2>
+  <p class="lead rv">Choisis un disque dans le bac : le site prend la couleur de sa pochette.</p>
+  <div class="deck rv">
+    <div class="tt">
+      <div class="vinyl" id="vinyl"><div class="lbl" id="lbl"></div></div>
+      <div class="arm" id="arm"><i></i></div>
+    </div>
+    <div class="now">
+      <div class="kick" id="nk">Dernière sortie</div>
+      <h3 id="nt">Assaf</h3>
+      <div class="meta" id="nm"></div>
+      <p class="story" id="ns"></p>
+      <div class="plats" id="np"></div>
+      <button class="btn" id="play">▶ Poser le diamant</button>
+    </div>
+  </div>
+  <div class="crate" id="crate"></div>
+</section>
+
+<section id="dates">
+  <div class="kick rv">Live &amp; DJ sets</div>
+  <h2 class="rv">Les dates</h2>
+  <div class="dates" id="dl"></div>
+  <div class="soon rv">
+    <b>Prochaines dates bientôt</b>
+    <span style="color:var(--mute);flex:1;min-width:200px">Les annonces tombent d'abord sur Instagram.</span>
+    <a class="btn ghost" href="https://www.instagram.com/blackaccord_music/" target="_blank" rel="noopener">Suivre @blackaccord_music</a>
+  </div>
+  <div class="flyers" id="fl"></div>
+</section>
+
+<section id="duo">
+  <div class="duo">
+    <div class="ph rv"><img src="duo-live.jpg" alt="Les deux membres de Black Accord aux platines" loading="lazy"></div>
+    <div class="rv">
+      <div class="kick">Le duo</div>
+      <h2>Deux têtes,<br>un accord</h2>
+      <p class="lead">« Le duo nîmois qui explose tout sur son passage à chaque prestation. » Black Accord, c'est deux producteurs et DJs qui mélangent indie dance, house et techno mélodique, en DJ set comme en live. Membres du Brand'ade Crew, ils produisent des tracks qui passent des clubs de Nîmes aux festivals.</p>
+      <div class="stats" id="st"></div>
+      <div class="src">Chiffres Viberate du 16/10/2026 · abonnés Instagram du 06/11/2026.</div>
+      <div class="cities" id="ct"></div>
+    </div>
+  </div>
+</section>
+
+<section id="joue">
+  <div class="played rv">
+    <img src="labyrinth.jpg" alt="Foule au Labyrinth Festival à Londres" loading="lazy">
+    <div>
+      <div class="kick">Ils ont joué nos tracks</div>
+      <blockquote style="margin:14px 0 18px">« Assaf » joué par <em>Mahmut Orhan</em> au Labyrinth Festival, Londres</blockquote>
+      <p class="lead">Et une compilation spéciale avec Greg Delon sur son label Way of House : le WAOH Sampler réunit Black Accord, Delon, Kaine, Music P, Vali et Wielki.</p>
+    </div>
+  </div>
+  <div class="venues" aria-label="Lieux où Black Accord a joué"><div id="vn"></div></div>
+</section>
+
+<section id="crew">
+  <div class="crew rv">
+    <img src="brandade-crew.jpg" alt="" loading="lazy">
+    <div class="in">
+      <div class="kick">Le label</div>
+      <h2>Brand'ade Crew</h2>
+      <p class="lead">Le collectif et label nîmois (oui, la boîte de brandade 🐠) : des sorties « Only Good Vibes » et des Brand'ade Crew Party au Barberousse, de 15 h à 1 h.</p>
+      <p style="margin-top:20px"><a class="btn ghost" href="https://www.instagram.com/brandadecrew/" target="_blank" rel="noopener">@brandadecrew</a></p>
+    </div>
+  </div>
+</section>
+
+<section id="insta">
+  <div class="prof rv">
+    <svg viewBox="0 0 120 120"><use href="#logo"/></svg>
+    <div style="flex:1">
+      <div class="kick">Instagram</div>
+      <h2 style="margin:4px 0 0;font-size:clamp(32px,5vw,56px)">@blackaccord_music</h2>
+      <div style="color:var(--mute);font-size:14px">215 publications · 3 079 abonnés</div>
+    </div>
+    <a class="btn" href="https://www.instagram.com/blackaccord_music/" target="_blank" rel="noopener">Suivre</a>
+  </div>
+  <div class="ig" id="ig"></div>
+</section>
+
+<section id="booking">
+  <div class="book">
+    <div class="rv">
+      <div class="kick">Booking</div>
+      <h2>Faites-nous jouer</h2>
+      <p class="lead">Club, festival, soirée privée, live ou DJ set : dites-nous tout, on revient vers vous vite.</p>
+      <div class="contact" style="margin-top:30px">
+        <a href="https://www.instagram.com/blackaccord_music/" target="_blank" rel="noopener">Instagram ↗</a>
+        <a href="https://www.threads.net/@blackaccord_music" target="_blank" rel="noopener">Threads ↗</a>
+        <a href="https://www.beatport.com/search?q=Black%20Accord" target="_blank" rel="noopener">Beatport ↗</a>
+      </div>
+    </div>
+    <form id="bf" class="rv">
+      <div class="row">
+        <label>Nom<input name="nom" required autocomplete="name"></label>
+        <label>Email<input name="email" type="email" required autocomplete="email"></label>
+      </div>
+      <div class="row">
+        <label>Lieu / événement<input name="lieu" required></label>
+        <label>Date<input name="date" type="date" required></label>
+      </div>
+      <div class="row">
+        <label>Format<select name="format"><option>DJ set</option><option>Live</option><option>Les deux</option></select></label>
+        <label>Public attendu<select name="public"><option>Moins de 300</option><option>300 à 1 000</option><option>Plus de 1 000</option></select></label>
+      </div>
+      <label>Message<textarea name="msg" placeholder="Horaires, budget, ambiance…"></textarea></label>
+      <button class="btn" type="submit" style="justify-self:start">Envoyer la demande</button>
+      <div class="ok" id="ok">Merci ! Demande bien reçue (démo : rien n'est envoyé).</div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div>© Black Accord · Nîmes, France</div>
+  <div>Démo non officielle · visuels issus de @blackaccord_music</div>
+</footer>
+
+<div class="mbar"><a class="btn" href="#musique">▶ Écouter</a><a class="btn ghost" href="#booking">Booking</a></div>
+<div class="lb" id="lb"><img alt=""></div>
+
+<script>
+// ===== Données (réelles, relevées sur Instagram le 06/11/2026) =====
+const TRACKS=[
+ {t:'Assaf',img:'assaf.jpg',c:'#f0a030',k:'Dernière sortie',m:'Indie dance · Brand\'ade Crew records',s:'Le masque doré. Jouée par Mahmut Orhan au Labyrinth Festival de Londres.'},
+ {t:'Finger Vibes',img:'finger-vibes.jpg',c:'#2f8cff',m:'Indie dance · Brand\'ade Crew records',s:'Groove mains en l\'air, bleu et orange.'},
+ {t:'Dub',img:'dub.jpg',c:'#39ff14',m:'Indie dance / dub · Brand\'ade Crew records',s:'Basse ronde et vert fluo, pour les fins de nuit.'},
+ {t:'Bip Phone Man',img:'bip-phone-man.jpg',c:'#d9822b',m:'Indie dance · Brand\'ade Crew records',s:'Le téléphone qui sonne en plein drop. Disponible sur Beatport.'},
+ {t:'Canela en El Suelo',img:'canela.jpg',c:'#ff3fa4',m:'House · Brand\'ade Crew records',s:'Chaleur latine et bonne humeur.'},
+ {t:'Overdose',img:'overdose.jpg',c:'#e8e2d6',m:'House · Brand\'ade Crew records',s:'Floue, hypnotique, à monter fort.'}];
+const PLATS=[['Spotify','https://open.spotify.com/search/'],['Apple Music','https://music.apple.com/fr/search?term='],['Beatport','https://www.beatport.com/search?q='],['Deezer','https://www.deezer.com/search/'],['Traxsource','https://www.traxsource.com/search?term=']];
+const DATES=[
+ {d:'31',m:'OCT 2026',t:'Halloween · Gaya',p:'Avec Julian Jeweil, Delon, Julien Stifler · Black Accord en live · soirée Spartacus',img:'halloween-gaya.jpg'},
+ {d:'25',m:'OCT 2026',t:'Brand\'ade Crew Party',p:'Barberousse, Nîmes · 15 h – 1 h',img:'brandade-party.jpg'},
+ {d:'17',m:'OCT 2026',t:'Electronic Pleasures',p:'Château Saint-Louis, Florensac',img:'florensac.jpg'},
+ {d:'2026',m:'ÉTÉ',t:'Blue Moon Festival',p:'Retour sur le passage de Black Accord',img:'live-rouge.jpg'}];
+const VENUES=['La Churascaia','Le Jacquart','Sunday Club','Sunday Aéroport de Montpellier','O Château','Gaya','Barberousse','Château Saint-Louis','Blue Moon Festival','Marseille'];
+const STATS=[[227941,'streams Spotify'],[14713,'Shazams'],[4921,'auditeurs / mois'],[94,'playlists actives'],[348,'diffusions radio'],[3079,'abonnés Instagram']];
+const CITIES=[['Istanbul',277],['Marseille',180],['Montpellier',166],['Paris',105],['Francfort',93]];
+const IG=[['assaf.jpg','ASSAF · Full track out now'],['finger-vibes.jpg','FINGER VIBES · Full track out now'],['dub.jpg','DUB · Full track out now'],['duo-live.jpg','Live exceptionnel à Marseille'],['bip-phone-man.jpg','BIP PHONE MAN'],['canela.jpg','Canela en El Suelo'],['halloween-gaya.jpg','Halloween · Gaya · 31/10'],['brandade-party.jpg','Brand\'ade Crew Party · 25/10']];
+
+const $=s=>document.querySelector(s), fmt=n=>n.toLocaleString('fr-FR');
+const q=t=>encodeURIComponent('Black Accord '+t);
+
+// Titre en vague
+$('#h1').innerHTML=[...'Black Accord'].map((c,i)=>`<span style="animation-delay:${1.9+i*.05}s">${c===' '?'&nbsp;':c}</span>`).join('');
+$('.eq').innerHTML=Array.from({length:14},(_,i)=>`<i style="animation-delay:${-i*.13}s;animation-duration:${.6+((i*37)%7)/10}s"></i>`).join('');
+const mqTxt=['Indie dance','Assaf','Brand\'ade Crew','Nîmes','Finger Vibes','Live & DJ set','Dub','Bip Phone Man'].map(x=>`${x}<b>✦</b>`).join('');
+$('#mq').innerHTML=mqTxt+mqTxt;
+
+// Platine
+let cur=0,playing=false;
+function pick(i){
+  cur=i;const T=TRACKS[i];
+  document.documentElement.style.setProperty('--acc',T.c);
+  $('#lbl').style.backgroundImage=`url(${T.img})`;
+  $('#nk').textContent=T.k||'Sortie';$('#nt').textContent=T.t;$('#nm').textContent=T.m;$('#ns').textContent=T.s;
+  $('#np').innerHTML=PLATS.map(([n,u])=>`<a href="${u}${q(T.t)}" target="_blank" rel="noopener">${n}</a>`).join('');
+  document.querySelectorAll('.crate button').forEach((b,j)=>b.classList.toggle('sel',j===i));
+}
+function setPlay(on){playing=on;$('#vinyl').classList.toggle('play',on);$('#arm').classList.toggle('on',on);$('#play').textContent=on?'❚❚ Lever le diamant':'▶ Poser le diamant'}
+$('#crate').innerHTML=TRACKS.map((T,i)=>`<button aria-label="${T.t}"><img src="${T.img}" alt="" loading="lazy"><span>${T.t}</span></button>`).join('');
+document.querySelectorAll('.crate button').forEach((b,i)=>b.onclick=()=>{pick(i);setPlay(true)});
+$('#play').onclick=()=>setPlay(!playing);
+pick(0);
+
+// Dates + flyers
+$('#dl').innerHTML=DATES.map(D=>`<div class="date rv"><div class="d">${D.d}<small>${D.m}</small></div><div><h4>${D.t}</h4><p>${D.p}</p></div><span class="pill">Passée</span></div>`).join('');
+$('#fl').innerHTML=DATES.map(D=>`<figure class="rv"><img src="${D.img}" alt="${D.t}" loading="lazy"><figcaption>${D.t}</figcaption></figure>`).join('');
+document.querySelectorAll('.flyers figure').forEach(f=>f.onclick=()=>{$('#lb img').src=f.querySelector('img').src;$('#lb').classList.add('on')});
+$('#lb').onclick=()=>$('#lb').classList.remove('on');
+
+// Stats (compteurs)
+$('#st').innerHTML=STATS.map(([n,l])=>`<div><b data-n="${n}">0</b><span>${l}</span></div>`).join('');
+$('#ct').innerHTML='<span style="border:0;padding-left:0;color:var(--mute)">Top villes Spotify :</span>'+CITIES.map(([c,n])=>`<span>${c} <em>${n}</em></span>`).join('');
+const vn=VENUES.map(v=>`<span>${v}</span>`).join('');$('#vn').innerHTML=vn+vn;
+$('#ig').innerHTML=IG.map(([i,t])=>`<a href="https://www.instagram.com/blackaccord_music/" target="_blank" rel="noopener"><img src="${i}" alt="${t}" loading="lazy"><span>${t}</span></a>`).join('');
+
+function count(el){const n=+el.dataset.n,t0=performance.now();(function f(t){const k=Math.min(1,(t-t0)/1600);el.textContent=fmt(Math.round(n*(1-Math.pow(1-k,3))));if(k<1)requestAnimationFrame(f)})(t0)}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');e.target.querySelectorAll('[data-n]').forEach(count);io.unobserve(e.target)}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+addEventListener('scroll',()=>$('#nav').classList.toggle('on',scrollY>40),{passive:true});
+
+// Le titre de la vague d'accueil change de couleur au rythme des pochettes
+let hc=0;setInterval(()=>{if(scrollY<innerHeight*.6&&!playing){hc=(hc+1)%TRACKS.length;document.documentElement.style.setProperty('--acc',TRACKS[hc].c)}else document.documentElement.style.setProperty('--acc',TRACKS[cur].c)},2600);
+
+// Booking (démo : rien n'est envoyé)
+$('#bf').onsubmit=e=>{e.preventDefault();$('#ok').style.display='block';e.target.querySelector('button').disabled=true};
+
+// Auto-test : ?test → console « selftest ok »
+if(location.search.includes('test')){
+  const ok=[TRACKS.length===6,$('#crate').children.length===6,$('#dl').children.length===DATES.length,$('#st').children.length===6,$('#ig').children.length===IG.length];
+  pick(2);ok.push(getComputedStyle(document.documentElement).getPropertyValue('--acc').trim()==='#39ff14');
+  setPlay(true);ok.push($('#vinyl').classList.contains('play'));setPlay(false);pick(0);
+  ok.push(document.documentElement.scrollWidth<=document.documentElement.clientWidth+1);
+  console.log(ok.every(Boolean)?'selftest ok':'selftest FAIL '+ok.map(Number).join(''));
+}
+</script>
+</body>
+</html>
